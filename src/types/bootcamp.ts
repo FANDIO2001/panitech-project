@@ -10,6 +10,21 @@ export interface Bootcamp {
   currentParticipants: number
   status: 'upcoming' | 'ongoing' | 'completed'
   curriculum?: string[]
+  // Nouvelles propriétés pour le design
+  image?: string
+  videoUrl?: string
+  isNew?: boolean
+  lastUpdate?: string
+  students?: number | string
+  language?: string
+  level?: 'beginner' | 'intermediate' | 'advanced'
+  expiry?: string
+  certificate?: boolean
+  provider?: string
+  rating?: number
+  courseType?: string
+  overviewText?: string
+  faqs?: { question: string; answer?: string }[]
 }
 
 export interface BootcampRegistration {

@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 interface CourseBundle {
   id: number
@@ -50,6 +52,17 @@ const courseBundles: CourseBundle[] = [
     originalPrice: '$249.00',
     isFavorite: false,
   },
+  {
+    id: 4,
+    title: 'PYTHON FOR DATA SCIENCE AND MACHINE LEARNING',
+    description: 'Lorem ipsum dolor sit amet consectetur. Enim et ullamcorper aliquam cras viverra urna massa lorem.',
+    image: '/assets/python-course.jpg',
+    provider: 'Grave academy',
+    date: 'July 29, 2032',
+    currentPrice: '$199.00',
+    originalPrice: '$249.00',
+    isFavorite: false,
+  },
 ]
 
 export function CourseBundles() {
@@ -66,7 +79,15 @@ export function CourseBundles() {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2
+            className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-[43.94px]"
+            style={{
+              fontFamily: 'Arial',
+              color: '#101828',
+              fontWeight: 'normal',
+              lineHeight: '1.1'
+            }}
+          >
             Master In-Demand Skills with Our Career Pathway Course Bundles
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -77,9 +98,9 @@ export function CourseBundles() {
         </div>
 
         {/* Course Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex overflow-x-auto gap-4 md:gap-8 pb-4 scrollbar-hide">
           {courseBundles.map((course) => (
-            <div key={course.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div key={course.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-[90%] sm:w-[412.25px] min-w-[280px]">
               {/* Course Image */}
               <div className="relative bg-white overflow-hidden border-0">
                 <div className="relative h-48">
@@ -97,11 +118,10 @@ export function CourseBundles() {
                     aria-label="Add to favorites"
                   >
                     <svg
-                      className={`w-6 h-6 ${
-                        favorites.includes(course.id)
-                          ? 'fill-orange-500 text-orange-500'
-                          : 'fill-white text-white'
-                      }`}
+                      className={`w-6 h-6 ${favorites.includes(course.id)
+                        ? 'fill-orange-500 text-orange-500'
+                        : 'fill-white text-white'
+                        }`}
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -145,22 +165,17 @@ export function CourseBundles() {
                   </div>
                   <Button
                     variant="primary"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md flex items-center gap-2"
+                    className="bg-transparent hover:bg-transparent px-6 py-2 flex items-center gap-2"
+                    style={{
+                      color: '#0075FF',
+                      fontFamily: 'Poppins',
+                      fontSize: '23.8px',
+                      lineHeight: '23.8px',
+                      letterSpacing: '0%'
+                    }}
                   >
-                    JOIN
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                    Join
+                    <FontAwesomeIcon icon={faArrowRight} className="w-5 h-5" style={{ color: '#0075FF' }} />
                   </Button>
                 </div>
               </div>

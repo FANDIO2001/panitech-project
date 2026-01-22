@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 interface BootcampCourse {
   id: number
@@ -108,14 +110,14 @@ export function BootcampSection() {
         </div>
 
         {/* Course Cards */}
-        <div className="flex gap-8 overflow-x-auto pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <div className="flex gap-4 md:gap-8 overflow-x-auto pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           <style jsx global>{`
             .overflow-x-auto::-webkit-scrollbar {
               display: none;
             }
           `}</style>
           {bootcampCourses.map((course) => (
-            <div key={course.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full md:w-96">
+            <div key={course.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-[90%] sm:w-[412.25px] min-w-[280px]">
               {/* Course Image */}
               <div className="relative bg-white overflow-hidden border-0">
                 <div className="relative h-48">
@@ -126,7 +128,7 @@ export function BootcampSection() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  
+
                   {/* Branding Overlay */}
                   {course.hasBranding && (
                     <div className="absolute top-4 left-4 z-10">
@@ -138,10 +140,10 @@ export function BootcampSection() {
                             course.brandColor === 'orange'
                               ? '#ea580c'
                               : course.brandColor === 'purple'
-                              ? '#9333ea'
-                              : course.brandColor === 'blue'
-                              ? '#1e40af'
-                              : '#3b82f6',
+                                ? '#9333ea'
+                                : course.brandColor === 'blue'
+                                  ? '#1e40af'
+                                  : '#3b82f6',
                           borderColor:
                             course.brandColor === 'blue'
                               ? '#3b82f6'
@@ -165,8 +167,8 @@ export function BootcampSection() {
                               course.brandColor === 'orange'
                                 ? '#ea580c'
                                 : course.brandColor === 'purple'
-                                ? '#9333ea'
-                                : '#3b82f6',
+                                  ? '#9333ea'
+                                  : '#3b82f6',
                           }}
                         >
                           <div className="text-white text-xs font-semibold leading-tight">
@@ -198,11 +200,10 @@ export function BootcampSection() {
                     aria-label="Add to favorites"
                   >
                     <svg
-                      className={`w-6 h-6 ${
-                        favorites.includes(course.id)
-                          ? 'fill-orange-500 text-orange-500'
-                          : 'fill-white text-white'
-                      }`}
+                      className={`w-6 h-6 ${favorites.includes(course.id)
+                        ? 'fill-orange-500 text-orange-500'
+                        : 'fill-white text-white'
+                        }`}
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -246,22 +247,17 @@ export function BootcampSection() {
                   </div>
                   <Button
                     variant="primary"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md flex items-center gap-2"
+                    className="bg-transparent hover:bg-transparent px-6 py-2 flex items-center gap-2"
+                    style={{
+                      color: '#0075FF',
+                      fontFamily: 'Poppins',
+                      fontSize: '23.8px',
+                      lineHeight: '23.8px',
+                      letterSpacing: '0%'
+                    }}
                   >
-                    JOIN
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                    Join
+                    <FontAwesomeIcon icon={faArrowRight} className="w-5 h-5" style={{ color: '#0075FF' }} />
                   </Button>
                 </div>
               </div>

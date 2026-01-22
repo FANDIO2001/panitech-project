@@ -1,57 +1,38 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import Image from 'next/image'
 import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
-import { registerBootcamp } from '../actions/registerBootcamp'
+import Link from 'next/link'
 
 export function BootcampBanner() {
-  const [isPending, startTransition] = useTransition()
-  const [message, setMessage] = useState<string | null>(null)
-
-  const handleRegister = () => {
-    setMessage(null)
-    startTransition(async () => {
-      const result = await registerBootcamp({
-        email: 'user@example.com', // Dans un vrai projet, récupérer depuis un formulaire
-        name: 'John Doe',
-      })
-      setMessage(result.message)
-    })
-  }
-
   return (
-    <Card className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-4">Bootcamp Intensif</h1>
-      <p className="text-gray-600 mb-6">
-        Rejoignez notre bootcamp intensif de 12 semaines et transformez votre
-        carrière. Formation complète en développement web avec accompagnement
-        personnalisé.
-      </p>
-      <div className="space-y-4">
-        <div>
-          <h3 className="font-semibold mb-2">Ce que vous apprendrez :</h3>
-          <ul className="list-disc list-inside text-gray-600 space-y-1">
-            <li>Développement Frontend (React, Next.js)</li>
-            <li>Développement Backend (Node.js, APIs)</li>
-            <li>Base de données et architecture</li>
-            <li>Déploiement et DevOps</li>
-          </ul>
-        </div>
-        <Button
-          variant="primary"
-          onClick={handleRegister}
-          disabled={isPending}
-          className="w-full"
-        >
-          {isPending ? 'Inscription en cours...' : "S'inscrire au Bootcamp"}
-        </Button>
-        {message && (
-          <p className={`text-sm ${message.includes('succès') ? 'text-green-600' : 'text-red-600'}`}>
-            {message}
+    <div className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <div className="container mx-auto px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+            Transformez votre carrière avec nos Bootcamps
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-blue-100">
+            Formations intensives et pratiques pour maîtriser les technologies les plus demandées du marché
           </p>
-        )}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/bootcamp">
+              <Button
+                variant="primary"
+                className="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 text-lg font-semibold"
+              >
+                Découvrir nos Bootcamps
+              </Button>
+            </Link>
+            <Button
+              variant="outline"
+              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold"
+            >
+              En savoir plus
+            </Button>
+          </div>
+        </div>
       </div>
-    </Card>
+    </div>
   )
 }

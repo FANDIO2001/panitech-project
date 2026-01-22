@@ -7,6 +7,9 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'PaniTech Academy',
   description: 'Plateforme d\'apprentissage en ligne',
+  icons: {
+    icon: '/logo.jpg',
+  },
 }
 
 export default function RootLayout({

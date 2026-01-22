@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 interface TopRatedCourse {
   id: number
@@ -85,7 +87,15 @@ export function TopRatedCourses() {
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2
+            className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-[43.94px]"
+            style={{
+              fontFamily: 'Arial',
+              color: '#101828',
+              fontWeight: 'normal',
+              lineHeight: '1.1'
+            }}
+          >
             Top-Rated & Best Selling Courses: See what learners in Hyattsville Are Choosing
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -96,14 +106,14 @@ export function TopRatedCourses() {
         </div>
 
         {/* Course Cards */}
-        <div className="flex gap-8 overflow-x-auto pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+        <div className="flex gap-4 md:gap-8 overflow-x-auto pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
           <style jsx global>{`
             .overflow-x-auto::-webkit-scrollbar {
               display: none;
             }
           `}</style>
           {topRatedCourses.map((course) => (
-            <div key={course.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-full md:w-96">
+            <div key={course.id} className="bg-white rounded-lg shadow-lg overflow-hidden flex-shrink-0 w-[90%] sm:w-[412.25px] min-w-[280px]">
               {/* Course Image */}
               <div className="relative bg-white overflow-hidden border-0">
                 <div className="relative h-48">
@@ -114,7 +124,7 @@ export function TopRatedCourses() {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  
+
                   {/* Branding Overlay */}
                   {course.hasBranding && (
                     <div className="absolute top-4 left-4 z-10">
@@ -147,11 +157,10 @@ export function TopRatedCourses() {
                     aria-label="Add to favorites"
                   >
                     <svg
-                      className={`w-6 h-6 ${
-                        favorites.includes(course.id)
-                          ? 'fill-orange-500 text-orange-500'
-                          : 'fill-white text-white'
-                      }`}
+                      className={`w-6 h-6 ${favorites.includes(course.id)
+                        ? 'fill-orange-500 text-orange-500'
+                        : 'fill-white text-white'
+                        }`}
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -195,22 +204,17 @@ export function TopRatedCourses() {
                   </div>
                   <Button
                     variant="primary"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md flex items-center gap-2"
+                    className="bg-transparent hover:bg-transparent px-6 py-2 flex items-center gap-2"
+                    style={{
+                      color: '#0075FF',
+                      fontFamily: 'Poppins',
+                      fontSize: '23.8px',
+                      lineHeight: '23.8px',
+                      letterSpacing: '0%'
+                    }}
                   >
-                    JOIN
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
+                    Join
+                    <FontAwesomeIcon icon={faArrowRight} className="w-5 h-5" style={{ color: '#0075FF' }} />
                   </Button>
                 </div>
               </div>

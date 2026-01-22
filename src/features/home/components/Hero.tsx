@@ -23,7 +23,7 @@ export function Hero() {
             <div className="relative z-10 container mx-auto px-6 py-20">
                 <div className="max-w-2xl">
                     {/* Main Headline */}
-                    <h1 className="text-5xl md:text-5xl font-bold text-white mb-8 leading-tight">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 md:mb-8 leading-tight">
                         <span className="block">No Experience? No Problem</span>
                         <span className="block">We'll Get You Job-Ready in 6 months or less</span>
 
@@ -61,7 +61,8 @@ export function Hero() {
                     {/* Browse Courses Button */}
                     <Button
                         variant="primary"
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold mb-8"
+                        className="bg-transparent hover:opacity-90 text-white px-8 py-4 rounded-lg text-lg font-semibold mb-8 transition-opacity"
+                        style={{ backgroundColor: '#57C5F7' }}
                     >
                         Browse Courses
                     </Button>
