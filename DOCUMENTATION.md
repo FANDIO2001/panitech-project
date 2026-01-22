@@ -1,341 +1,341 @@
-# Documentation PaniTech Academy
+# PaniTech Academy Documentation
 
-## 📦 Liste des Dépendances
+## 📦 Dependencies List
 
-### Dépendances Principales (dependencies)
-
-| Package | Version | Description |
-|---------|---------|-------------|
-| `next` | ^14.2.0 | Framework React pour applications full-stack |
-| `react` | ^18.3.1 | Bibliothèque UI React |
-| `react-dom` | ^18.3.1 | Rendu React pour le DOM |
-| `@fortawesome/fontawesome-svg-core` | ^7.1.0 | Core FontAwesome pour icônes SVG |
-| `@fortawesome/free-solid-svg-icons` | ^7.1.0 | Icônes solides gratuites FontAwesome |
-| `@fortawesome/react-fontawesome` | ^3.1.1 | Composants React pour FontAwesome |
-
-### Dépendances de Développement (devDependencies)
+### Main Dependencies (dependencies)
 
 | Package | Version | Description |
 |---------|---------|-------------|
-| `typescript` | ^5.4.5 | Langage de programmation typé |
-| `tailwindcss` | ^3.4.1 | Framework CSS utility-first |
-| `postcss` | ^8.4.35 | Outil de transformation CSS |
-| `autoprefixer` | ^10.4.18 | Plugin PostCSS pour préfixes CSS |
-| `eslint` | ^8.57.0 | Linter JavaScript/TypeScript |
-| `eslint-config-next` | ^14.2.0 | Configuration ESLint pour Next.js |
-| `@types/node` | ^20.12.7 | Types TypeScript pour Node.js |
-| `@types/react` | ^18.3.1 | Types TypeScript pour React |
-| `@types/react-dom` | ^18.3.0 | Types TypeScript pour React DOM |
-| `pdfkit` | ^0.14.0 | Génération de PDF (non utilisé actuellement) |
+| `next` | ^14.2.0 | React framework for full-stack applications |
+| `react` | ^18.3.1 | React UI library |
+| `react-dom` | ^18.3.1 | React DOM rendering |
+| `@fortawesome/fontawesome-svg-core` | ^7.1.0 | FontAwesome core for SVG icons |
+| `@fortawesome/free-solid-svg-icons` | ^7.1.0 | Free solid FontAwesome icons |
+| `@fortawesome/react-fontawesome` | ^3.1.1 | React components for FontAwesome |
+
+### Development Dependencies (devDependencies)
+
+| Package | Version | Description |
+|---------|---------|-------------|
+| `typescript` | ^5.4.5 | Typed programming language |
+| `tailwindcss` | ^3.4.1 | Utility-first CSS framework |
+| `postcss` | ^8.4.35 | CSS transformation tool |
+| `autoprefixer` | ^10.4.18 | PostCSS plugin for CSS prefixes |
+| `eslint` | ^8.57.0 | JavaScript/TypeScript linter |
+| `eslint-config-next` | ^14.2.0 | ESLint configuration for Next.js |
+| `@types/node` | ^20.12.7 | TypeScript types for Node.js |
+| `@types/react` | ^18.3.1 | TypeScript types for React |
+| `@types/react-dom` | ^18.3.0 | TypeScript types for React DOM |
+| `pdfkit` | ^0.14.0 | PDF generation (currently unused) |
 
 ---
 
-## 🏗️ Architecture du Projet
+## 🏗️ Project Architecture
 
-### Structure des Dossiers
+### Folder Structure
 
 ```
 panitechacademy/
 ├── src/
-│   ├── app/                    # Pages Next.js (App Router)
-│   │   ├── page.tsx            # Page d'accueil
-│   │   ├── layout.tsx         # Layout racine
+│   ├── app/                    # Next.js Pages (App Router)
+│   │   ├── page.tsx            # Home page
+│   │   ├── layout.tsx         # Root layout
 │   │   ├── courses/
-│   │   │   ├── page.tsx       # Liste des cours
+│   │   │   ├── page.tsx       # Courses list
 │   │   │   └── [id]/
-│   │   │       └── page.tsx   # Détail d'un cours
+│   │   │       └── page.tsx   # Course detail
 │   │   └── bootcamp/
-│   │       └── page.tsx       # Page bootcamp
-│   ├── components/             # Composants réutilisables
+│   │       └── page.tsx       # Bootcamp page
+│   ├── components/             # Reusable components
 │   │   ├── Button.tsx
 │   │   ├── Card.tsx
 │   │   ├── Header.tsx
 │   │   ├── Footer.tsx
 │   │   └── TopHeader.tsx
-│   ├── features/              # Features organisées par domaine
-│   │   ├── home/              # Composants de la page d'accueil
-│   │   ├── courses/           # Composants des cours
-│   │   └── bootcamp/          # Composants bootcamp
-│   ├── lib/                   # Utilitaires et clients
-│   │   └── apiClient.ts       # Client API centralisé
-│   └── types/                 # Types TypeScript
+│   ├── features/              # Features organized by domain
+│   │   ├── home/              # Home page components
+│   │   ├── courses/           # Course components
+│   │   └── bootcamp/          # Bootcamp components
+│   ├── lib/                   # Utilities and clients
+│   │   └── apiClient.ts       # Centralized API client
+│   └── types/                 # TypeScript types
 │       ├── course.ts
 │       ├── bootcamp.ts
 │       └── user.ts
-└── public/                    # Assets statiques
+└── public/                    # Static assets
 ```
 
 ---
 
-## 🧩 Composants et leur Utilisation
+## 🧩 Components and Their Usage
 
-### 1. Composants Globaux (`src/components/`)
+### 1. Global Components (`src/components/`)
 
 #### **Button.tsx**
-- **Description** : Composant bouton réutilisable avec variantes
-- **Props** :
-  - `variant`: 'primary' | 'secondary' | 'outline' (défaut: 'primary')
-  - `children`: Contenu du bouton
-  - `className`: Classes CSS supplémentaires
-  - Toutes les props HTML standard d'un bouton
-- **Utilisation** :
+- **Description**: Reusable button component with variants
+- **Props**:
+  - `variant`: 'primary' | 'secondary' | 'outline' (default: 'primary')
+  - `children`: Button content
+  - `className`: Additional CSS classes
+  - All standard HTML button props
+- **Usage**:
   ```tsx
   <Button variant="primary" className="px-8 py-4">
-    Cliquer ici
+    Click here
   </Button>
   ```
-- **Où utilisé** : Partout dans l'application (Hero, Footer, Sections, etc.)
+- **Where used**: Throughout the application (Hero, Footer, Sections, etc.)
 
 #### **Card.tsx**
-- **Description** : Conteneur de carte avec ombre et padding
-- **Props** :
-  - `children`: Contenu de la carte
-  - `className`: Classes CSS supplémentaires
-- **Utilisation** :
+- **Description**: Card container with shadow and padding
+- **Props**:
+  - `children`: Card content
+  - `className`: Additional CSS classes
+- **Usage**:
   ```tsx
   <Card className="mb-4">
-    Contenu de la carte
+    Card content
   </Card>
   ```
 
 #### **Header.tsx**
-- **Description** : En-tête principal avec navigation, recherche, panier
-- **Fonctionnalités** :
-  - Navigation responsive (mobile/desktop)
-  - Menu déroulant pour les cours
-  - Barre de recherche
-  - Sélecteur de langue (FR/EN/ES)
-  - Icônes panier et favoris
-- **Où utilisé** : `src/app/layout.tsx` (toutes les pages)
+- **Description**: Main header with navigation, search, cart
+- **Features**:
+  - Responsive navigation (mobile/desktop)
+  - Dropdown menu for courses
+  - Search bar
+  - Language selector (FR/EN/ES)
+  - Cart and favorites icons
+- **Where used**: `src/app/layout.tsx` (all pages)
 
 #### **Footer.tsx**
-- **Description** : Pied de page avec liens et réseaux sociaux
-- **Fonctionnalités** :
-  - 4 colonnes de liens (Solutions, Company, Resources, Legal)
-  - Icônes réseaux sociaux (Facebook, Twitter, LinkedIn, Instagram)
-  - Dégradé de fond (#57C5F7 → #005C86)
-- **Où utilisé** : `src/app/layout.tsx` (toutes les pages)
+- **Description**: Footer with links and social media
+- **Features**:
+  - 4 link columns (Solutions, Company, Resources, Legal)
+  - Social media icons (Facebook, Twitter, LinkedIn, Instagram)
+  - Background gradient (#57C5F7 → #005C86)
+- **Where used**: `src/app/layout.tsx` (all pages)
 
 #### **TopHeader.tsx**
-- **Description** : En-tête supérieur (barre d'information)
-- **Où utilisé** : `src/app/layout.tsx`
+- **Description**: Top header (information bar)
+- **Where used**: `src/app/layout.tsx`
 
 ---
 
-### 2. Composants Home (`src/features/home/components/`)
+### 2. Home Components (`src/features/home/components/`)
 
 #### **Hero.tsx**
-- **Description** : Section héro de la page d'accueil
-- **Fonctionnalités** :
-  - Image de fond avec overlay
-  - Titre principal
-  - Barre de recherche
-  - Bouton "Browse Courses" (fond #57C5F7)
-- **Où utilisé** : `src/app/page.tsx` (première section)
+- **Description**: Hero section of the home page
+- **Features**:
+  - Background image with overlay
+  - Main title
+  - Search bar
+  - "Browse Courses" button (background #57C5F7)
+- **Where used**: `src/app/page.tsx` (first section)
 
 #### **TopRatedCourses.tsx**
-- **Description** : Affiche les cours les mieux notés
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: Displays top-rated courses
+- **Where used**: `src/app/page.tsx`
 
 #### **CourseBundles.tsx**
-- **Description** : Affiche les bundles de cours
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: Displays course bundles
+- **Where used**: `src/app/page.tsx`
 
 #### **NewestCourses.tsx**
-- **Description** : Affiche les cours les plus récents
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: Displays newest courses
+- **Where used**: `src/app/page.tsx`
 
 #### **InstructorLeadCourses.tsx**
-- **Description** : Affiche les cours dirigés par un instructeur
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: Displays instructor-led courses
+- **Where used**: `src/app/page.tsx`
 
 #### **BootcampSection.tsx**
-- **Description** : Section présentant les bootcamps
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: Section presenting bootcamps
+- **Where used**: `src/app/page.tsx`
 
 #### **Frame107Section.tsx**
-- **Description** : Section Frame 107 (contenu spécifique)
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: Frame 107 section (specific content)
+- **Where used**: `src/app/page.tsx`
 
 #### **PartnersSection.tsx**
-- **Description** : Section "Our Student Work at these companies"
-- **Fonctionnalités** :
-  - Dégradé de fond (#57C5F7 → #005C86)
-  - 4 logos de partenaires cliquables (Microsoft, Adobe, Certified Agency, AWS)
-  - Texte "Strategy" en overlay
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: "Our Student Work at these companies" section
+- **Features**:
+  - Background gradient (#57C5F7 → #005C86)
+  - 4 clickable partner logos (Microsoft, Adobe, Certified Agency, AWS)
+  - "Strategy" text overlay
+- **Where used**: `src/app/page.tsx`
 
 #### **WhyChooseSection.tsx**
-- **Description** : Section "Pourquoi nous choisir"
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: "Why choose us" section
+- **Where used**: `src/app/page.tsx`
 
 #### **TestimonialsSection.tsx**
-- **Description** : Section témoignages
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: Testimonials section
+- **Where used**: `src/app/page.tsx`
 
 #### **ReviewsSection.tsx**
-- **Description** : Section avis clients
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: Customer reviews section
+- **Where used**: `src/app/page.tsx`
 
 #### **FAQSection.tsx**
-- **Description** : Section FAQ (Questions fréquentes)
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: FAQ section (Frequently Asked Questions)
+- **Where used**: `src/app/page.tsx`
 
 #### **BusinessSection.tsx**
-- **Description** : Section pour les entreprises
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: Section for businesses
+- **Where used**: `src/app/page.tsx`
 
 #### **HireStudentsSection.tsx**
-- **Description** : Section "Hire PaniTech Students"
-- **Où utilisé** : `src/app/page.tsx`
+- **Description**: "Hire PaniTech Students" section
+- **Where used**: `src/app/page.tsx`
 
 #### **NewsletterSection.tsx**
-- **Description** : Section inscription newsletter
-- **Où utilisé** : `src/app/page.tsx` et `src/app/courses/page.tsx`
+- **Description**: Newsletter subscription section
+- **Where used**: `src/app/page.tsx` and `src/app/courses/page.tsx`
 
 ---
 
-### 3. Composants Courses (`src/features/courses/components/`)
+### 3. Course Components (`src/features/courses/components/`)
 
 #### **CoursesBanner.tsx**
-- **Description** : Bannière principale de la page cours
-- **Fonctionnalités** :
-  - Titre du cours
+- **Description**: Main banner for the courses page
+- **Features**:
+  - Course title
   - Badges (Best Seller, Category, Level, Status)
   - Description
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseHeaderSection.tsx**
-- **Description** : En-tête de la page de détail d'un cours
-- **Où utilisé** : `src/app/courses/[id]/page.tsx`
+- **Description**: Header for course detail page
+- **Where used**: `src/app/courses/[id]/page.tsx`
 
 #### **CourseInfoSidebar.tsx**
-- **Description** : Sidebar avec informations du cours (prix, durée, etc.)
-- **Où utilisé** : `src/app/courses/[id]/page.tsx`
+- **Description**: Sidebar with course information (price, duration, etc.)
+- **Where used**: `src/app/courses/[id]/page.tsx`
 
 #### **CourseTabs.tsx**
-- **Description** : Onglets de navigation (Overview, Curriculum, Reviews, etc.)
-- **Où utilisé** : `src/app/courses/[id]/page.tsx`
+- **Description**: Navigation tabs (Overview, Curriculum, Reviews, etc.)
+- **Where used**: `src/app/courses/[id]/page.tsx`
 
 #### **CourseTabContent.tsx**
-- **Description** : Contenu des onglets
-- **Où utilisé** : `src/app/courses/[id]/page.tsx`
+- **Description**: Tab content
+- **Where used**: `src/app/courses/[id]/page.tsx`
 
 #### **CourseDescriptionSection.tsx**
-- **Description** : Section description du cours
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: Course description section
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseJobsSection.tsx**
-- **Description** : Section des emplois liés au cours
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: Section for jobs related to the course
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseLearnSection.tsx**
-- **Description** : Section "What you'll learn"
-- **Fonctionnalités** :
-  - Dégradé de fond (#155DFC → #57C5F7)
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: "What you'll learn" section
+- **Features**:
+  - Background gradient (#155DFC → #57C5F7)
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseRequirementsSection.tsx**
-- **Description** : Section des prérequis
-- **Fonctionnalités** :
-  - Icônes checkmark avec couleur #57C5F7
-  - Bordures transparentes avec bordure #57C5F7
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: Prerequisites section
+- **Features**:
+  - Checkmark icons with color #57C5F7
+  - Transparent borders with #57C5F7 border
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseBatchesSection.tsx**
-- **Description** : Section "Flexible batches for you"
-- **Fonctionnalités** :
-  - 3 onglets : Instructor-Led, Self Paced Training, Corporate Training
-  - Styles conditionnels pour les onglets actifs
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: "Flexible batches for you" section
+- **Features**:
+  - 3 tabs: Instructor-Led, Self Paced Training, Corporate Training
+  - Conditional styles for active tabs
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CoursePathSection.tsx**
-- **Description** : Section "Path to career"
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: "Path to career" section
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseFAQSection.tsx**
-- **Description** : Section FAQ spécifique au cours
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: Course-specific FAQ section
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseCertificatesSection.tsx**
-- **Description** : Section des certificats disponibles
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: Available certificates section
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseEarnCertificateSection.tsx**
-- **Description** : Section "Earn Certificate"
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: "Earn Certificate" section
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseCurriculumSection.tsx**
-- **Description** : Section curriculum du cours
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: Course curriculum section
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseReviewsSection.tsx**
-- **Description** : Section avis sur le cours
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: Course reviews section
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseSuccessStoriesSection.tsx**
-- **Description** : Section histoires de succès
-- **Où utilisé** : `src/app/courses/page.tsx`
+- **Description**: Success stories section
+- **Where used**: `src/app/courses/page.tsx`
 
 #### **CourseCard.tsx**
-- **Description** : Carte de cours réutilisable
-- **Où utilisé** : Dans les sections de liste de cours
+- **Description**: Reusable course card
+- **Where used**: In course list sections
 
 #### **ContainerBackground.tsx**
-- **Description** : Conteneur avec fond personnalisé
-- **Où utilisé** : Diverses sections
+- **Description**: Container with custom background
+- **Where used**: Various sections
 
 ---
 
-### 4. Composants Bootcamp (`src/features/bootcamp/components/`)
+### 4. Bootcamp Components (`src/features/bootcamp/components/`)
 
 #### **BootcampBanner.tsx**
-- **Description** : Bannière du bootcamp
-- **Où utilisé** : `src/app/bootcamp/page.tsx`
+- **Description**: Bootcamp banner
+- **Where used**: `src/app/bootcamp/page.tsx`
 
 #### **BootcampHeaderSection.tsx**
-- **Description** : En-tête avec titre, description et métriques
-- **Où utilisé** : `src/app/bootcamp/page.tsx`
+- **Description**: Header with title, description and metrics
+- **Where used**: `src/app/bootcamp/page.tsx`
 
 #### **BootcampInfoSidebar.tsx**
-- **Description** : Sidebar avec prix et informations
-- **Fonctionnalités** :
-  - Prix avec font Poppins, SemiBold, 37.08px
-  - Texte "(one-time purchase)" avec couleur #4B556366, Medium, 21.08px
-- **Où utilisé** : `src/app/bootcamp/page.tsx`
+- **Description**: Sidebar with price and information
+- **Features**:
+  - Price with Poppins font, SemiBold, 37.08px
+  - "(one-time purchase)" text with color #4B556366, Medium, 21.08px
+- **Where used**: `src/app/bootcamp/page.tsx`
 
 #### **BootcampMediaSection.tsx**
-- **Description** : Section média (image/vidéo)
-- **Où utilisé** : `src/app/bootcamp/page.tsx`
+- **Description**: Media section (image/video)
+- **Where used**: `src/app/bootcamp/page.tsx`
 
 #### **BootcampTabs.tsx**
-- **Description** : Onglets de navigation pour le bootcamp
-- **Où utilisé** : `src/app/bootcamp/page.tsx`
+- **Description**: Navigation tabs for bootcamp
+- **Where used**: `src/app/bootcamp/page.tsx`
 
 #### **BootcampTabContent.tsx**
-- **Description** : Contenu des onglets
-- **Où utilisé** : `src/app/bootcamp/page.tsx`
+- **Description**: Tab content
+- **Where used**: `src/app/bootcamp/page.tsx`
 
 #### **BootcampDetails.tsx**
-- **Description** : Détails du bootcamp
-- **Où utilisé** : Dans les onglets
+- **Description**: Bootcamp details
+- **Where used**: In tabs
 
 #### **BootcampRegistrationForm.tsx**
-- **Description** : Formulaire d'inscription au bootcamp
-- **Où utilisé** : Dans les onglets
+- **Description**: Bootcamp registration form
+- **Where used**: In tabs
 
 #### **BootcampCTASection.tsx**
-- **Description** : Section Call-to-Action
-- **Fonctionnalités** :
-  - Image de fond
-  - Bouton "View All Courses & Start learning" avec fond #57C5F7
-- **Où utilisé** : `src/app/bootcamp/page.tsx` (en bas de page)
+- **Description**: Call-to-Action section
+- **Features**:
+  - Background image
+  - "View All Courses & Start learning" button with background #57C5F7
+- **Where used**: `src/app/bootcamp/page.tsx` (bottom of page)
 
 ---
 
-## 🔄 Flux d'Appel des Composants
+## 🔄 Component Call Flow
 
-### Page d'Accueil (`src/app/page.tsx`)
+### Home Page (`src/app/page.tsx`)
 
 ```
 HomePage
@@ -356,7 +356,7 @@ HomePage
 └── NewsletterSection
 ```
 
-### Page Cours (`src/app/courses/page.tsx`)
+### Courses Page (`src/app/courses/page.tsx`)
 
 ```
 CoursesPage
@@ -376,7 +376,7 @@ CoursesPage
 └── NewsletterSection
 ```
 
-### Page Détail Cours (`src/app/courses/[id]/page.tsx`)
+### Course Detail Page (`src/app/courses/[id]/page.tsx`)
 
 ```
 CourseDetailPage
@@ -387,7 +387,7 @@ CourseDetailPage
     └── CourseInfoSidebar
 ```
 
-### Page Bootcamp (`src/app/bootcamp/page.tsx`)
+### Bootcamp Page (`src/app/bootcamp/page.tsx`)
 
 ```
 BootcampPage
@@ -402,7 +402,7 @@ BootcampPage
 └── BootcampCTASection
 ```
 
-### Layout Global (`src/app/layout.tsx`)
+### Global Layout (`src/app/layout.tsx`)
 
 ```
 RootLayout
@@ -414,73 +414,73 @@ RootLayout
 
 ---
 
-## 🎨 Styles et Thème
+## 🎨 Styles and Theme
 
-### Couleurs Principales
+### Main Colors
 
-- **Bleu principal** : `#57C5F7`
-- **Bleu foncé** : `#005C86`
-- **Bleu gradient** : `#155DFC`
-- **Gris texte** : `#4B556366`
-- **Noir texte** : `#0F172B`
+- **Main blue**: `#57C5F7`
+- **Dark blue**: `#005C86`
+- **Gradient blue**: `#155DFC`
+- **Text gray**: `#4B556366`
+- **Text black**: `#0F172B`
 
-### Dégradés Utilisés
+### Used Gradients
 
-1. **PartnersSection & Footer** : `linear-gradient(to bottom, #57C5F7, #005C86)`
-2. **CourseLearnSection** : `linear-gradient(to bottom, #155DFC, #57C5F7)`
+1. **PartnersSection & Footer**: `linear-gradient(to bottom, #57C5F7, #005C86)`
+2. **CourseLearnSection**: `linear-gradient(to bottom, #155DFC, #57C5F7)`
 
-### Typographie
+### Typography
 
-- **Font principale** : Arial (pour certains titres)
-- **Font Poppins** : Utilisée pour les prix (SemiBold, 37.08px)
+- **Main font**: Arial (for some titles)
+- **Poppins font**: Used for prices (SemiBold, 37.08px)
 
 ---
 
-## 🔧 Actions et API
+## 🔧 Actions and API
 
-### Actions Home (`src/features/home/actions/`)
+### Home Actions (`src/features/home/actions/`)
 
 #### **getHeroData.ts**
-- Récupère les données pour la section Hero
+- Retrieves data for the Hero section
 
-### Actions Courses (`src/features/courses/actions/`)
+### Course Actions (`src/features/courses/actions/`)
 
 #### **fetchCourses.ts**
-- Récupère la liste de tous les cours
-- Retourne : `Promise<Course[]>`
+- Retrieves the list of all courses
+- Returns: `Promise<Course[]>`
 
 #### **fetchCourse.ts**
-- Récupère un cours spécifique par ID
-- Paramètres : `courseId: number`
-- Retourne : `Promise<Course | null>`
+- Retrieves a specific course by ID
+- Parameters: `courseId: number`
+- Returns: `Promise<Course | null>`
 
-### Actions Bootcamp (`src/features/bootcamp/actions/`)
+### Bootcamp Actions (`src/features/bootcamp/actions/`)
 
 #### **fetchBootcamp.ts**
-- Récupère un bootcamp spécifique par ID
-- Paramètres : `bootcampId: number`
-- Retourne : `Promise<Bootcamp | null>`
-- Fonction : `fetchAllBootcamps()` pour récupérer tous les bootcamps
+- Retrieves a specific bootcamp by ID
+- Parameters: `bootcampId: number`
+- Returns: `Promise<Bootcamp | null>`
+- Function: `fetchAllBootcamps()` to retrieve all bootcamps
 
 #### **registerBootcamp.ts**
-- Enregistre un utilisateur à un bootcamp
-- Paramètres : `registration: BootcampRegistration`
-- Retourne : `Promise<BootcampRegistration>`
+- Registers a user to a bootcamp
+- Parameters: `registration: BootcampRegistration`
+- Returns: `Promise<BootcampRegistration>`
 
-### Client API (`src/lib/apiClient.ts`)
+### API Client (`src/lib/apiClient.ts`)
 
 #### **ApiClient**
-- Classe pour gérer les appels API
-- Méthodes :
-  - `get<T>(endpoint, options?)` : Requête GET
-  - `post<T>(endpoint, data?, options?)` : Requête POST
-  - `put<T>(endpoint, data?, options?)` : Requête PUT
-  - `delete<T>(endpoint, options?)` : Requête DELETE
-- Instance par défaut : `apiClient`
+- Class to manage API calls
+- Methods:
+  - `get<T>(endpoint, options?)`: GET request
+  - `post<T>(endpoint, data?, options?)`: POST request
+  - `put<T>(endpoint, data?, options?)`: PUT request
+  - `delete<T>(endpoint, options?)`: DELETE request
+- Default instance: `apiClient`
 
 ---
 
-## 📝 Types TypeScript
+## 📝 TypeScript Types
 
 ### Course (`src/types/course.ts`)
 
@@ -523,92 +523,90 @@ interface Bootcamp {
   videoUrl?: string
   level?: 'beginner' | 'intermediate' | 'advanced'
   rating?: number
-  // ... autres propriétés
+  // ... other properties
 }
 ```
 
 ---
 
-## 🚀 Scripts Disponibles
+## 🚀 Available Scripts
 
 ```bash
-# Développement
-npm run dev          # Lance le serveur de développement
+# Development
+npm run dev          # Starts the development server
 
 # Production
-npm run build        # Compile l'application pour la production
-npm run start        # Lance le serveur de production
+npm run build        # Builds the application for production
+npm run start        # Starts the production server
 
-# Qualité
-npm run lint         # Vérifie le code avec ESLint
+# Quality
+npm run lint         # Checks code with ESLint
 ```
 
 ---
 
-## 📦 Exports et Index
+## 📦 Exports and Index
 
-### Exports Home (`src/features/home/index.ts`)
-Exporte tous les composants et actions de la feature home.
+### Home Exports (`src/features/home/index.ts`)
+Exports all components and actions from the home feature.
 
-### Exports Courses (`src/features/courses/index.ts`)
-Exporte tous les composants et actions de la feature courses.
+### Course Exports (`src/features/courses/index.ts`)
+Exports all components and actions from the courses feature.
 
-### Exports Bootcamp (`src/features/bootcamp/index.ts`)
-Exporte tous les composants et actions de la feature bootcamp.
+### Bootcamp Exports (`src/features/bootcamp/index.ts`)
+Exports all components and actions from the bootcamp feature.
 
 ---
 
-## 🔗 Liens et Navigation
+## 🔗 Links and Navigation
 
-### Routes Principales
+### Main Routes
 
-- `/` : Page d'accueil
-- `/courses` : Liste des cours
-- `/courses/[id]` : Détail d'un cours
-- `/bootcamp` : Page bootcamp
+- `/`: Home page
+- `/courses`: Courses list
+- `/courses/[id]`: Course detail
+- `/bootcamp`: Bootcamp page
 
-### Navigation dans Header
+### Header Navigation
 
 - Home → `/`
 - Courses → `/courses`
 - Bootcamp → `/bootcamp`
-- Community → `#` (à implémenter)
-- Subscription → `#` (à implémenter)
+- Community → `#` (to be implemented)
+- Subscription → `#` (to be implemented)
 
 ---
 
 ## 📱 Responsive Design
 
-L'application utilise Tailwind CSS avec des breakpoints :
-- `sm:` : 640px
-- `md:` : 768px
-- `lg:` : 1024px
-- `xl:` : 1280px
+The application uses Tailwind CSS with breakpoints:
+- `sm:`: 640px
+- `md:`: 768px
+- `lg:`: 1024px
+- `xl:`: 1280px
 
-Les composants sont conçus pour être responsive, avec des adaptations spécifiques pour mobile et desktop.
-
----
-
-## 🎯 Points Clés de Fonctionnement
-
-1. **Next.js App Router** : Utilisation du nouveau système de routing de Next.js 14
-2. **Server Components** : La plupart des pages sont des Server Components (async)
-3. **Client Components** : Composants interactifs marqués avec `'use client'`
-4. **TypeScript** : Typage strict pour une meilleure maintenabilité
-5. **Tailwind CSS** : Styling avec classes utilitaires
-6. **FontAwesome** : Icônes SVG via React FontAwesome
-7. **Image Optimization** : Utilisation de `next/image` pour l'optimisation des images
+Components are designed to be responsive, with specific adaptations for mobile and desktop.
 
 ---
 
-## 📄 Notes Importantes
+## 🎯 Key Functionality Points
 
-- Les données sont actuellement mockées dans les actions
-- L'API client est configuré mais nécessite une vraie API backend
-- Les images sont stockées dans `/public/assets/` et `/public/images/`
-- Le logo est dans `/public/logo.jpg`
-- Les couleurs principales sont définies via inline styles pour certaines sections
+1. **Next.js App Router**: Uses Next.js 14's new routing system
+2. **Server Components**: Most pages are Server Components (async)
+3. **Client Components**: Interactive components marked with `'use client'`
+4. **TypeScript**: Strict typing for better maintainability
+5. **Tailwind CSS**: Styling with utility classes
+6. **FontAwesome**: SVG icons via React FontAwesome
+7. **Image Optimization**: Uses `next/image` for image optimization
 
 ---
 
-*Documentation générée le : $(date)*
+## 📄 Important Notes
+
+- Data is currently mocked in actions
+- API client is configured but requires a real backend API
+- Images are stored in `/public/assets/` and `/public/images/`
+- Logo is in `/public/logo.jpg`
+- Main colors are defined via inline styles for some sections
+
+---
