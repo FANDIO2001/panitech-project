@@ -1,71 +1,71 @@
 # PaniTech Academy
 
-Projet Next.js avec TypeScript, Server Actions et Tailwind CSS - Architecture Feature-Based
+Next.js project with TypeScript, Server Actions, and Tailwind CSS - Feature-Based Architecture
 
-## 🏗️ Architecture du projet
+## 🏗️ Project Architecture
 
 ```
 panitechacademy/
 │
-├── public/                        # Fichiers statiques (images, icônes, SVG, etc.)
-│   ├── assets/                    # Assets exportés depuis Figma
+├── public/                        # Static files (images, icons, SVG, etc.)
+│   ├── assets/                    # Assets exported from Figma
 │   └── favicon.ico
 │
 ├── src/
-│   ├── app/                       # Pages et routing Next.js (App Router)
-│   │   ├── layout.tsx             # Layout global (Header/Footer)
-│   │   ├── page.tsx               # Page d'accueil (Home)
-│   │   ├── courses/               # Page Courses
+│   ├── app/                       # Next.js pages and routing (App Router)
+│   │   ├── layout.tsx             # Global layout (Header/Footer)
+│   │   ├── page.tsx               # Home page
+│   │   ├── courses/               # Courses page
 │   │   │   └── page.tsx
-│   │   ├── bootcamp/              # Page Bootcamp
+│   │   ├── bootcamp/              # Bootcamp page
 │   │   │   └── page.tsx
-│   │   └── globals.css            # Styles globaux (inclut Tailwind)
+│   │   └── globals.css            # Global styles (includes Tailwind)
 │   │
-│   ├── components/                # Composants génériques réutilisables
+│   ├── components/                # Reusable generic components
 │   │   ├── Header.tsx
 │   │   ├── Footer.tsx
 │   │   ├── Button.tsx
 │   │   └── Card.tsx
 │   │
-│   ├── features/                  # Fonctionnalités spécifiques
+│   ├── features/                  # Specific features
 │   │   ├── home/
-│   │   │   ├── components/        # Composants propres à Home
+│   │   │   ├── components/        # Components specific to Home
 │   │   │   │   └── Hero.tsx
 │   │   │   ├── actions/           # Server Actions
 │   │   │   │   └── getHeroData.ts
 │   │   │   └── index.ts
 │   │   │
 │   │   ├── courses/
-│   │   │   ├── components/        # Composants propres à Courses
+│   │   │   ├── components/        # Components specific to Courses
 │   │   │   │   └── CourseCard.tsx
 │   │   │   ├── actions/           # Server Actions
 │   │   │   │   └── fetchCourses.ts
 │   │   │   └── index.ts
 │   │   │
 │   │   └── bootcamp/
-│   │       ├── components/        # Composants propres à Bootcamp
+│   │       ├── components/        # Components specific to Bootcamp
 │   │       │   └── BootcampBanner.tsx
 │   │       ├── actions/           # Server Actions
 │   │       │   └── registerBootcamp.ts
 │   │       └── index.ts
 │   │
-│   ├── lib/                       # Fonctions utilitaires globales
+│   ├── lib/                       # Global utility functions
 │   │   └── apiClient.ts
 │   │
-│   ├── styles/                    # Config Tailwind et styles personnalisés
+│   ├── styles/                    # Tailwind config and custom styles
 │   │   └── tailwind.config.ts
 │   │
-│   └── types/                     # Types et interfaces TypeScript
+│   └── types/                     # TypeScript types and interfaces
 │       ├── course.ts
 │       ├── bootcamp.ts
 │       └── user.ts
 │
-├── .env.local                     # Variables d'environnement (API, clés…)
-├── tailwind.config.js              # Configuration Tailwind
-├── postcss.config.js               # Configuration PostCSS
-├── next.config.js                  # Configuration Next.js
-├── tsconfig.json                   # Configuration TypeScript
-└── package.json                    # Dépendances et scripts
+├── .env.local                     # Environment variables (API, keys, etc.)
+├── tailwind.config.js              # Tailwind configuration
+├── postcss.config.js               # PostCSS configuration
+├── next.config.js                  # Next.js configuration
+├── tsconfig.json                   # TypeScript configuration
+└── package.json                    # Dependencies and scripts
 ```
 
 ## 🚀 Installation
@@ -74,51 +74,51 @@ panitechacademy/
 npm install
 ```
 
-## 📝 Scripts disponibles
+## 📝 Available scripts
 
-- `npm run dev` - Démarrer le serveur de développement
-- `npm run build` - Construire l'application pour la production
-- `npm run start` - Démarrer le serveur de production
-- `npm run lint` - Lancer ESLint
+- `npm run dev` - Start the development server
+- `npm run build` - Build the application for production
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint
 
-## 🔧 Technologies utilisées
+## 🔧 Technologies used
 
-- **Next.js 14** - Framework React avec App Router
-- **TypeScript** - Typage statique
-- **Tailwind CSS** - Framework CSS utilitaire
-- **Server Actions** - Actions serveur intégrées (approche hybride)
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Static typing
+- **Tailwind CSS** - Utility CSS framework
+- **Server Actions** - Built-in server actions (hybrid approach)
 
-## 📚 Structure Feature-Based
+## 📚 Feature-Based Structure
 
-Le projet suit une architecture **feature-based** où chaque fonctionnalité est isolée dans son propre dossier avec :
-- Ses composants spécifiques
-- Ses Server Actions
-- Ses types (si nécessaire)
-- Un fichier `index.ts` pour les exports
+The project follows a **feature-based** architecture where each feature is isolated in its own folder with:
+- Its specific components
+- Its Server Actions
+- Its types (if necessary)
+- An `index.ts` file for exports
 
-### Avantages
+### Advantages
 
-- ✅ Organisation claire et modulaire
-- ✅ Facilite la maintenance et l'évolutivité
-- ✅ Réutilisabilité des composants génériques
-- ✅ Séparation des préoccupations
+- ✅ Clear and modular organization
+- ✅ Facilitates maintenance and scalability
+- ✅ Reusability of generic components
+- ✅ Separation of concerns
 
 ## 🎯 Server Actions
 
-Les Server Actions permettent d'exécuter du code côté serveur directement depuis les composants React. Voir les fichiers dans `src/features/*/actions/` pour des exemples.
+Server Actions allow you to execute server-side code directly from React components. See the files in `src/features/*/actions/` for examples.
 
-### Caractéristiques
+### Features
 
-- ✅ Typage TypeScript complet
-- ✅ Validation côté serveur
-- ✅ Gestion d'état avec `useTransition`
-- ✅ Approche hybride (client + serveur)
+- ✅ Full TypeScript typing
+- ✅ Server-side validation
+- ✅ State management with `useTransition`
+- ✅ Hybrid approach (client + server)
 
 ## 📦 Configuration
 
-### Variables d'environnement
+### Environment variables
 
-Créez un fichier `.env.local` à la racine du projet :
+Create a `.env.local` file at the root of the project:
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3000/api
@@ -126,26 +126,26 @@ NEXT_PUBLIC_API_URL=http://localhost:3000/api
 
 ### Tailwind CSS
 
-La configuration Tailwind est dans `tailwind.config.js`. Les styles personnalisés peuvent être ajoutés dans `src/styles/tailwind.config.ts`.
+The Tailwind configuration is in `tailwind.config.js`. Custom styles can be added in `src/styles/tailwind.config.ts`.
 
-## 🎨 Composants
+## 🎨 Components
 
-### Composants génériques
+### Generic components
 
-Les composants réutilisables sont dans `src/components/` :
-- `Header` - En-tête de navigation
-- `Footer` - Pied de page
-- `Button` - Bouton avec variantes
-- `Card` - Carte de contenu
+Reusable components are in `src/components/`:
+- `Header` - Navigation header
+- `Footer` - Footer
+- `Button` - Button with variants
+- `Card` - Content card
 
-### Composants de features
+### Feature components
 
-Les composants spécifiques à une feature sont dans `src/features/[feature]/components/`.
+Feature-specific components are located in `src/features/[feature]/components/`.
 
-## 🔄 Prochaines étapes
+## 🔄 Next steps
 
-1. Ajouter une base de données (Prisma, Supabase, etc.)
-2. Implémenter l'authentification
-3. Ajouter des tests (Jest, Testing Library)
-4. Configurer CI/CD
-5. Ajouter des animations et transitions
+1. Add a database (Prisma, Supabase, etc.)
+2. Implement authentication
+3. Add tests (Jest, Testing Library)
+4. Set up CI/CD
+5. Add animations and transitions
