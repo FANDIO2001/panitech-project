@@ -80,7 +80,7 @@ npm install
 - `npm run build` - Build the application for production
 - `npm run start` - Start the production server
 - `npm run lint` - Run ESLint
-
+- `http/localhost:3000/` - Run project on your browser
 ## 🔧 Technologies used
 
 - **Next.js 14** - React framework with App Router
